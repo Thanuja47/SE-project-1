@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "8f3af7be-50c7-4723-a6f9-d6e65a1c149b",
+		"name": "Payment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25682308"
+	},
+	"item": [
+		{
+			"name": "Make a Payment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"payment_id\": 1,\r\n  \"transaction_id\": \"TRX123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/payments/pay",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"payments",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment History",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/payments/student/:id",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"payments",
+						"student",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pending Payments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/payments/pending?student_id=1",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"payments",
+						"pending"
+					],
+					"query": [
+						{
+							"key": "student_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Payments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/payments/admin/payments",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"payments",
+						"admin",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Revenue Summary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/payments/admin/payments/revenue",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"payments",
+						"admin",
+						"payments",
+						"revenue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payments by Date Range",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/payments/admin/payments/filter?start_date=2025-01-01&end_date=2025-01-17",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"payments",
+						"admin",
+						"payments",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2025-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2025-01-17"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

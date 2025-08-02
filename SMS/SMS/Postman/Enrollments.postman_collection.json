@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "f79237f8-9980-4506-955f-693d5e5dec9d",
+		"name": "Enrollments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25682308"
+	},
+	"item": [
+		{
+			"name": "Enroll in a Course",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"course_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/enrollments",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"enrollments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drop a Course",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/enrollments/:id/drop",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"enrollments",
+						":id",
+						"drop"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student's Enrolled Courses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/enrollments",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"enrollments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

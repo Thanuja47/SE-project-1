@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "26ef831a-1404-4009-ac7f-4f4b9276b5d5",
+		"name": "Attendance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25682308"
+	},
+	"item": [
+		{
+			"name": "Mark Attendance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"class_id\": 1,\r\n  \"student_id\": 1,\r\n  \"status\": \"present\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/attendance/mark",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"attendance",
+						"mark"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Attendance for a Class",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/attendance/class/:class_id",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"attendance",
+						"class",
+						":class_id"
+					],
+					"variable": [
+						{
+							"key": "class_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Attendance for a Student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/attendance/student/:student_id",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"attendance",
+						"student",
+						":student_id"
+					],
+					"variable": [
+						{
+							"key": "student_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Attendance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/attendance/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"attendance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate PDF",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/attendance/report/:class_id",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"attendance",
+						"report",
+						":class_id"
+					],
+					"variable": [
+						{
+							"key": "class_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

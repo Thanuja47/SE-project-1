@@ -1,0 +1,228 @@
+import React from 'react'
+import CIcon from '@coreui/icons-react'
+import {
+  cilBell,
+  cilCalendar,
+  cilChartPie,
+  cilCursor,
+  cilDescription,
+  cilDrop,
+  cilExternalLink,
+  cilNotes,
+  cilPencil,
+  cilSchool,
+  cilPuzzle,
+  cilSpeedometer,
+  cilStar,
+  cilUser,
+  cilGroup,
+  cilMoney,
+  cilList,
+  cilCheckCircle,
+  cilEnvelopeOpen,
+  cilSettings,
+} from '@coreui/icons'
+import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
+
+const navItems = [
+  {
+    component: CNavItem,
+    name: 'Dashboard',
+    to: '/dashboard',
+    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    roles: ['admin', 'instructor', 'student'],
+  },
+  {
+    component: CNavTitle,
+    name: 'Schools',
+    roles: ['admin', 'instructor'],
+  },
+  {
+    component: CNavItem,
+    name: 'Manage Schools',
+    to: '/schools',
+    icon: <CIcon icon={cilSchool} customClassName="nav-icon" />,
+    roles: ['admin'],
+  },
+  {
+    component: CNavItem,
+    name: 'Manage Courses',
+    to: '/courses',
+    icon: <CIcon icon={cilList} customClassName="nav-icon" />,
+    roles: ['admin', 'instructor'],
+  },
+  {
+    component: CNavTitle,
+    name: 'Students',
+    roles: ['admin', 'instructor'],
+  },
+  {
+    component: CNavItem,
+    name: 'Manage Students',
+    to: '/students/manage',
+    icon: <CIcon icon={cilGroup} customClassName="nav-icon" />,
+    roles: ['admin', 'instructor'],
+  },
+  {
+    component: CNavTitle,
+    name: 'Classes',
+    roles: ['admin', 'instructor', 'student'],
+  },
+  {
+    component: CNavItem,
+    name: 'Enrolled Classes',
+    to: '/EnrolledClasses',
+    icon: <CIcon icon={cilList} customClassName="nav-icon" />,
+    roles: ['student'],
+  },
+  {
+    component: CNavItem,
+    name: 'Class Shedule',
+    to: '/shedule',
+    icon: <CIcon icon={cilCalendar} customClassName="nav-icon" />,
+    roles: ['student'],
+  },
+  {
+    component: CNavItem,
+    name: 'Enroll in Class',
+    to: '/Enroll',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+    roles: ['student'],
+  },
+  {
+    component: CNavItem,
+    name: 'Class Scheduling',
+    to: '/classes/schedule',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+    roles: ['admin', 'instructor'],
+  },
+  {
+    component: CNavItem,
+    name: 'Mark Attendance',
+    to: '/classes/attendance',
+    icon: <CIcon icon={cilCheckCircle} customClassName="nav-icon" />,
+    roles: ['admin', 'instructor'],
+  },
+  {
+    component: CNavTitle,
+    name: 'Financials',
+    roles: ['admin', 'instructor', 'student'],
+  },
+  {
+    component: CNavItem,
+    name: 'Fee Structure',
+    to: '/financials/fees',
+    icon: <CIcon icon={cilMoney} customClassName="nav-icon" />,
+    roles: ['admin'],
+  },
+  {
+    component: CNavItem,
+    name: 'Payment Management',
+    to: '/financials/payments',
+    icon: <CIcon icon={cilMoney} customClassName="nav-icon" />,
+    roles: ['admin'],
+  },
+  {
+    component: CNavItem,
+    name: 'Payment Management',
+    to: '/financials/payment',
+    icon: <CIcon icon={cilMoney} customClassName="nav-icon" />,
+    roles: ['student'],
+  },
+  {
+    component: CNavItem,
+    name: 'Payment Overview',
+    to: '/financials/overview',
+    icon: <CIcon icon={cilMoney} customClassName="nav-icon" />,
+    roles: ['admin', 'student'],
+  },
+  {
+    component: CNavTitle,
+    name: 'Grading',
+    roles: ['admin', 'instructor', 'student'],
+  },
+  {
+    component: CNavItem,
+    name: 'Grades',
+    to: '/Grades',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+    roles: ['student'],
+  },
+  {
+    component: CNavItem,
+    name: 'Assign Grades',
+    to: '/grading/assign',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+    roles: ['admin', 'instructor'],
+  },
+  {
+    component: CNavItem,
+    name: 'Performance Reports',
+    to: '/grading/reports',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+    roles: ['admin'],
+  },
+  {
+    component: CNavTitle,
+    name: 'Notifications',
+    roles: [],
+  },
+  {
+    component: CNavItem,
+    name: 'Admin Notifications',
+    to: '/notifications/admin',
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    roles: [],
+  },
+  {
+    component: CNavItem,
+    name: 'Student Notifications',
+    to: '/notifications/student',
+    icon: <CIcon icon={cilEnvelopeOpen} customClassName="nav-icon" />,
+    roles: [],
+  },
+  {
+    component: CNavTitle,
+    name: 'Reports',
+    roles: ['admin'],
+  },
+  {
+    component: CNavItem,
+    name: 'View Reports',
+    to: '/reports/view',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+    roles: ['admin'],
+  },
+  {
+    component: CNavItem,
+    name: 'System Analytics',
+    to: '/reports/analytics',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+    roles: [],
+  },
+  {
+    component: CNavTitle,
+    name: 'Settings',
+    roles: ['admin'],
+  },
+  {
+    component: CNavItem,
+    name: 'User Management',
+    to: '/admin/users',
+    icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
+    roles: ['admin'],
+  },
+  {
+    component: CNavItem,
+    name: 'System Settings',
+    to: '/settings/system',
+    icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
+    roles: [],
+  },
+]
+
+const filterNavItems = (role) => {
+  return navItems.filter((item) => item.roles.includes(role))
+}
+
+export default filterNavItems
